@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -18,6 +17,8 @@ const Register = () => {
     confirmPassword: '',
     agreeToTerms: false
   });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -27,15 +28,47 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match');
+      setError('Passwords do not match');
       return;
     }
-    console.log('Registration attempt:', formData);
-    // Add registration logic here
-    alert('Registration functionality will be implemented with backend integration');
+    if (!formData.agreeToTerms) {
+      setError('You must agree to the terms');
+      return;
+    }
+    setLoading(true);
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.message || 'Registration failed');
+        setLoading(false);
+        return;
+      }
+      // Optionally, auto-login or redirect to dashboard
+      if (data.token && data.user) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        window.location.href = '/dashboard';
+      } else {
+        window.location.href = '/dashboard';
+      }
+    } catch (err) {
+      setError('Network error');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -180,8 +213,9 @@ const Register = () => {
                 </Label>
               </div>
 
-              <Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
-                Create Account
+              {error && <div className="text-red-600 text-sm mb-2">{error}</div>}
+              <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={loading}>
+                {loading ? 'Creating Account...' : 'Create Account'}
               </Button>
             </form>
 

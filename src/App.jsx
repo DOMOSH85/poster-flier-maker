@@ -12,6 +12,8 @@ import Contact from "./pages/Contact";
 import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 import './index.css'
+import ProtectedRoute from './pages/ProtectedRoute';
+import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -25,10 +27,19 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/payment" element={<Payment />} />
+          <Route path="/payment" element={
+            <ProtectedRoute>
+              <Payment />
+            </ProtectedRoute>
+          } />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

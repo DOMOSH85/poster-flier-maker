@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -8,6 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ArrowLeft, Eye, EyeOff } from 'lucide-react';
 
 const Login = () => {
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -21,12 +22,35 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Login attempt:', formData);
-    // Add login logic here
-    alert('Login functionality will be implemented with backend integration');
+    setError('');
+    setLoading(true);
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.message || 'Login failed');
+        setLoading(false);
+        return;
+      }
+      // Store JWT in localStorage
+      localStorage.setItem('token', data.token);
+      // Optionally store user info
+      localStorage.setItem('user', JSON.stringify(data.user));
+      // Redirect or update UI
+      window.location.href = '/dashboard';
+    } catch (err) {
+      setError('Network error');
+    } finally {
+      setLoading(false);
+    }
   };
+
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -110,8 +134,9 @@ const Login = () => {
                 </Link>
               </div>
 
-              <Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
-                Sign In
+              {error && <div className="text-red-600 text-sm mb-2">{error}</div>}
+              <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={loading}>
+                {loading ? 'Signing In...' : 'Sign In'}
               </Button>
             </form>
 
