@@ -24,7 +24,8 @@ const PricingSection = () => {
       ],
       buttonText: 'Create Design',
       popular: false,
-      gradient: 'from-gray-50 to-white'
+      gradient: 'from-gray-50 to-white',
+      priceId: 'price_1Rgspz00JciMELW2GB3ltO9G'
     },
     {
       name: 'Hustler Pro',
@@ -43,7 +44,8 @@ const PricingSection = () => {
       ],
       buttonText: 'Start Free Trial',
       popular: true,
-      gradient: 'from-green-100 to-green-50'
+      gradient: 'from-green-100 to-green-50',
+      priceId: 'price_1RgsSR00JciMELW2U3LaqlbG'
     },
     {
       name: 'Business Elite',
@@ -62,24 +64,35 @@ const PricingSection = () => {
       ],
       buttonText: 'Contact Sales',
       popular: false,
-      gradient: 'from-gray-50 to-white'
+      gradient: 'from-gray-50 to-white',
+      priceId: 'price_1Rgsn700JciMELW2FnwFVVR9'
     }
   ];
 
-  const handlePlanSelect = (plan) => {
+  const handlePlanSelect = async (plan) => {
     if (plan.buttonText === 'Contact Sales') {
       alert('Please contact our sales team at sales@hustleflyerforge.com');
       return;
     }
-    
-    navigate('/payment', {
-      state: {
-        name: plan.name,
-        price: plan.price,
-        period: plan.period,
-        features: plan.features
+    if (!plan.priceId) {
+      alert('Payment not available for this plan yet.');
+      return;
+    }
+    try {
+      const response = await fetch('http://localhost:5000/api/payment/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ priceId: plan.priceId }),
+      });
+      const data = await response.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Failed to initiate payment.');
       }
-    });
+    } catch (err) {
+      alert('Payment error: ' + err.message);
+    }
   };
 
   return (
@@ -133,8 +146,9 @@ const PricingSection = () => {
                       : 'bg-gray-900 hover:bg-gray-800 text-white'
                   }`}
                   size="lg"
+                  disabled={plan.buttonText === 'Contact Sales'}
                 >
-                  {plan.buttonText}
+                  {plan.buttonText === 'Contact Sales' ? 'Contact Sales' : 'Pay'}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
 

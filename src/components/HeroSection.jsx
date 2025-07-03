@@ -2,8 +2,11 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Image, Text, Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 
 const HeroSection = () => {
+  const { isAuthenticated } = useAuth();
   return (
     <section className="relative bg-gradient-to-br from-gray-50 to-white py-20 lg:py-32 overflow-hidden">
       {/* Background Pattern */}
@@ -39,6 +42,13 @@ const HeroSection = () => {
                 <Button size="lg" className="border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 text-lg">
                   View Templates
                 </Button>
+                {isAuthenticated && (
+                  <Link to="/dashboard">
+                    <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg">
+                      Go to Dashboard
+                    </Button>
+                  </Link>
+                )}
               </div>
 
               {/* Stats */}

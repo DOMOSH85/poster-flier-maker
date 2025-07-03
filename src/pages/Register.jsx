@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -18,7 +18,9 @@ const Register = () => {
     agreeToTerms: false
   });
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -31,6 +33,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
@@ -53,17 +56,12 @@ const Register = () => {
       const data = await res.json();
       if (!res.ok) {
         setError(data.message || 'Registration failed');
-        setLoading(false);
         return;
       }
-      // Optionally, auto-login or redirect to dashboard
-      if (data.token && data.user) {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        window.location.href = '/dashboard';
-      } else {
-        window.location.href = '/dashboard';
-      }
+      setSuccess('Registration successful! Redirecting to login...');
+      setTimeout(() => {
+        navigate('/login');
+      }, 1500);
     } catch (err) {
       setError('Network error');
     } finally {
@@ -214,6 +212,7 @@ const Register = () => {
               </div>
 
               {error && <div className="text-red-600 text-sm mb-2">{error}</div>}
+              {success && <div className="text-green-600 text-sm mb-2">{success}</div>}
               <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={loading}>
                 {loading ? 'Creating Account...' : 'Create Account'}
               </Button>

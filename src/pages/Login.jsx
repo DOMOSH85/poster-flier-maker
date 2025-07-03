@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -14,6 +14,8 @@ const Login = () => {
     email: '',
     password: ''
   });
+  const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormData({
@@ -25,6 +27,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
     setLoading(true);
     try {
       const res = await fetch('http://localhost:5000/api/auth/login', {
@@ -42,8 +45,10 @@ const Login = () => {
       localStorage.setItem('token', data.token);
       // Optionally store user info
       localStorage.setItem('user', JSON.stringify(data.user));
-      // Redirect or update UI
-      window.location.href = '/dashboard';
+      setSuccess('Login successful! Redirecting to dashboard...');
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1500);
     } catch (err) {
       setError('Network error');
     } finally {
@@ -135,6 +140,7 @@ const Login = () => {
               </div>
 
               {error && <div className="text-red-600 text-sm mb-2">{error}</div>}
+              {success && <div className="text-green-600 text-sm mb-2">{success}</div>}
               <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={loading}>
                 {loading ? 'Signing In...' : 'Sign In'}
               </Button>

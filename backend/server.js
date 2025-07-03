@@ -23,6 +23,26 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Backend is running!' });
 });
 
+app.post('/api/auth/register', (req, res) => {
+    const { name, email, password } = req.body;
+    // Logic to handle registration, e.g., saving to a database
+    if (!name || !email || !password) {
+        return res.status(400).json({ message: 'All fields are required' });
+    }
+    // Simulate successful registration
+    res.status(201).json({ message: 'User registered successfully' });
+});
+
+app.post('/api/auth/login', (req, res) => {
+  const { email, password } = req.body;
+  // Logic to handle registration, e.g., saving to a database
+  if (!email || !password) {
+      return res.status(400).json({ message: 'All fields are required' });
+  }
+  // Simulate successful registration
+  res.status(201).json({ message: 'User Logged in successfully' });
+});
+
 app.get('/api/test', (req, res) => res.json({ ok: true }));
 
 // Connect to MongoDB
