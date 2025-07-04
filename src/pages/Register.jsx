@@ -70,33 +70,33 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <Link to="/" className="inline-flex items-center text-green-600 hover:text-green-700 mb-8">
+          <Link to="/" className="inline-flex items-center text-green-600 hover:text-green-400 dark:text-green-400 dark:hover:text-green-300 mb-8">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Home
           </Link>
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-green-800 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-green-800 dark:from-green-500 dark:to-green-700 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold">HF</span>
             </div>
-            <span className="text-2xl font-bold text-gray-900">HustleFlyerForge</span>
+            <span className="text-2xl font-bold text-gray-900 dark:text-white">HustleFlyerForge</span>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900">Create Account</h2>
-          <p className="mt-2 text-gray-600">Join thousands of hustlers creating amazing flyers</p>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Create Account</h2>
+          <p className="mt-2 text-gray-600 dark:text-gray-300">Join thousands of hustlers creating amazing flyers</p>
         </div>
 
-        <Card className="mt-8">
+        <Card className="mt-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
           <CardHeader>
-            <CardTitle>Sign Up</CardTitle>
-            <CardDescription>Create your account to start designing</CardDescription>
+            <CardTitle className="text-gray-900 dark:text-white">Sign Up</CardTitle>
+            <CardDescription className="text-gray-600 dark:text-gray-300">Create your account to start designing</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="firstName">First Name</Label>
+                  <Label htmlFor="firstName" className="text-gray-900 dark:text-gray-100">First Name</Label>
                   <Input
                     id="firstName"
                     name="firstName"
@@ -104,12 +104,12 @@ const Register = () => {
                     required
                     value={formData.firstName}
                     onChange={handleInputChange}
-                    className="mt-1"
+                    className="mt-1 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
                     placeholder="John"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="lastName">Last Name</Label>
+                  <Label htmlFor="lastName" className="text-gray-900 dark:text-gray-100">Last Name</Label>
                   <Input
                     id="lastName"
                     name="lastName"
@@ -117,14 +117,14 @@ const Register = () => {
                     required
                     value={formData.lastName}
                     onChange={handleInputChange}
-                    className="mt-1"
+                    className="mt-1 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
                     placeholder="Doe"
                   />
                 </div>
               </div>
 
               <div>
-                <Label htmlFor="email">Email Address</Label>
+                <Label htmlFor="email" className="text-gray-900 dark:text-gray-100">Email Address</Label>
                 <Input
                   id="email"
                   name="email"
@@ -132,13 +132,13 @@ const Register = () => {
                   required
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="mt-1"
+                  className="mt-1 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
                   placeholder="john@example.com"
                 />
               </div>
 
               <div>
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password" className="text-gray-900 dark:text-gray-100">Password</Label>
                 <div className="relative mt-1">
                   <Input
                     id="password"
@@ -147,6 +147,7 @@ const Register = () => {
                     required
                     value={formData.password}
                     onChange={handleInputChange}
+                    className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
                     placeholder="Create a strong password"
                   />
                   <button
@@ -155,16 +156,16 @@ const Register = () => {
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
-                      <EyeOff className="h-4 w-4 text-gray-400" />
+                      <EyeOff className="h-4 w-4 text-gray-400 dark:text-gray-300" />
                     ) : (
-                      <Eye className="h-4 w-4 text-gray-400" />
+                      <Eye className="h-4 w-4 text-gray-400 dark:text-gray-300" />
                     )}
                   </button>
                 </div>
               </div>
 
               <div>
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Label htmlFor="confirmPassword" className="text-gray-900 dark:text-gray-100">Confirm Password</Label>
                 <div className="relative mt-1">
                   <Input
                     id="confirmPassword"
@@ -173,6 +174,7 @@ const Register = () => {
                     required
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
+                    className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
                     placeholder="Confirm your password"
                   />
                   <button
@@ -181,9 +183,9 @@ const Register = () => {
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   >
                     {showConfirmPassword ? (
-                      <EyeOff className="h-4 w-4 text-gray-400" />
+                      <EyeOff className="h-4 w-4 text-gray-400 dark:text-gray-300" />
                     ) : (
-                      <Eye className="h-4 w-4 text-gray-400" />
+                      <Eye className="h-4 w-4 text-gray-400 dark:text-gray-300" />
                     )}
                   </button>
                 </div>
@@ -197,23 +199,23 @@ const Register = () => {
                   required
                   checked={formData.agreeToTerms}
                   onChange={handleInputChange}
-                  className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-900"
                 />
-                <Label htmlFor="agreeToTerms" className="ml-2 text-sm text-gray-900">
+                <Label htmlFor="agreeToTerms" className="ml-2 text-sm text-gray-900 dark:text-gray-200">
                   I agree to the{' '}
-                  <Link to="/terms" className="text-green-600 hover:text-green-700">
+                  <Link to="/terms" className="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300">
                     Terms of Service
                   </Link>{' '}
                   and{' '}
-                  <Link to="/privacy" className="text-green-600 hover:text-green-700">
+                  <Link to="/privacy" className="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300">
                     Privacy Policy
                   </Link>
                 </Label>
               </div>
 
-              {error && <div className="text-red-600 text-sm mb-2">{error}</div>}
-              {success && <div className="text-green-600 text-sm mb-2">{success}</div>}
-              <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={loading}>
+              {error && <div className="text-red-600 dark:text-red-400 text-sm mb-2">{error}</div>}
+              {success && <div className="text-green-600 dark:text-green-400 text-sm mb-2">{success}</div>}
+              <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white dark:bg-green-500 dark:hover:bg-green-600 dark:text-white font-semibold shadow-md" disabled={loading}>
                 {loading ? 'Creating Account...' : 'Create Account'}
               </Button>
             </form>
@@ -221,15 +223,15 @@ const Register = () => {
             <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300" />
+                  <div className="w-full border-t border-gray-300 dark:border-gray-700" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Or sign up with</span>
+                  <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-300">Or sign up with</span>
                 </div>
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-3">
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800">
                   <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                     <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -238,7 +240,7 @@ const Register = () => {
                   </svg>
                   Google
                 </Button>
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800">
                   <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
                   </svg>
@@ -247,9 +249,9 @@ const Register = () => {
               </div>
             </div>
 
-            <p className="mt-6 text-center text-sm text-gray-600">
+            <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-300">
               Already have an account?{' '}
-              <Link to="/login" className="font-medium text-green-600 hover:text-green-700">
+              <Link to="/login" className="font-medium text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300">
                 Sign in here
               </Link>
             </p>
