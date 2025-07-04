@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -19,14 +18,9 @@ const CTASection = () => {
             🚀 Ready to Start?
           </Badge>
           
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Start Creating Professional Flyers
-            <span className="block">in the Next 5 Minutes</span>
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">Ready to Get Started?</h2>
           
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Join thousands of Kenyan hustlers who are already growing their businesses with professional marketing materials. No design skills required!
-          </p>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">Join thousands of users creating stunning posters and fliers in minutes.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">

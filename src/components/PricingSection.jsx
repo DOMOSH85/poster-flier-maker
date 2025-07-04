@@ -96,17 +96,17 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-white">
+    <section id="pricing" className="py-20 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="mb-4 bg-green-100 text-green-800 border-green-200">
             💰 Simple Pricing
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             Choose Your Perfect Plan
             <span className="text-green-600 block">Start Free, Scale as You Grow</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             Transparent pricing with no hidden fees. Start with pay-per-design or go unlimited with our monthly plans.
           </p>
         </div>
@@ -124,15 +124,15 @@ const PricingSection = () => {
                 </Badge>
               )}
               
-              <CardHeader className={`bg-gradient-to-br ${plan.gradient} rounded-t-lg pb-8`}>
-                <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
+              <CardHeader className={`bg-white dark:bg-gray-900 rounded-t-lg pb-8`}>
+                <CardTitle className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                   {plan.name}
                 </CardTitle>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600 ml-2">{plan.period}</span>
+                  <span className="text-4xl font-bold text-gray-900 dark:text-gray-100">{plan.price}</span>
+                  <span className="text-gray-700 dark:text-gray-300 ml-2">{plan.period}</span>
                 </div>
-                <CardDescription className="text-gray-600 text-base">
+                <CardDescription className="text-gray-700 dark:text-gray-300 text-base">
                   {plan.description}
                 </CardDescription>
               </CardHeader>
@@ -153,13 +153,13 @@ const PricingSection = () => {
                 </Button>
 
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-gray-900 mb-3">What's included:</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">What's included:</h4>
                   {plan.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start space-x-3">
                       <div className="flex-shrink-0 w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
                         <Check className="h-3 w-3 text-green-600" />
                       </div>
-                      <span className="text-gray-600">{feature}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -168,28 +168,28 @@ const PricingSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-gray-50 to-white rounded-2xl p-8 border border-gray-200">
+        <div className="mt-16 bg-gradient-to-r from-gray-50 to-white rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-6">
               <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">💳</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Secure Payments</h3>
-              <p className="text-gray-600 text-sm">Pay with M-Pesa, Visa, or Mastercard. All transactions are encrypted and secure.</p>
+              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Secure Payments</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">Pay with M-Pesa, Visa, or Mastercard. All transactions are encrypted and secure.</p>
             </div>
-            <div>
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-6">
               <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🔄</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Cancel Anytime</h3>
-              <p className="text-gray-600 text-sm">No long-term commitments. Cancel your subscription anytime with just one click.</p>
+              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Cancel Anytime</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">No long-term commitments. Cancel your subscription anytime with just one click.</p>
             </div>
-            <div>
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-6">
               <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🎯</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Money-Back Guarantee</h3>
-              <p className="text-gray-600 text-sm">Not satisfied? Get a full refund within 30 days, no questions asked.</p>
+              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Money-Back Guarantee</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">Not satisfied? Get a full refund within 30 days, no questions asked.</p>
             </div>
           </div>
         </div>

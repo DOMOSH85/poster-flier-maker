@@ -7,6 +7,7 @@ import { ArrowRight, Eye } from 'lucide-react';
 
 const TemplatesSection = () => {
   const [activeTab, setActiveTab] = useState('business');
+  const [loading, setLoading] = useState(false);
 
   const categories = [
     { id: 'business', name: 'Business', count: 120 },
@@ -261,31 +262,31 @@ const TemplatesSection = () => {
   };
 
   return (
-    <section id="templates" className="py-20 bg-gray-50">
+    <section id="templates" className="py-20 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="mb-4 bg-green-100 text-green-800 border-green-200">
             🎨 Design Templates
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             500+ Professional Templates
             <span className="text-green-600 block">Ready to Customize</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             Choose from our extensive library of professionally designed templates, organized by industry and purpose.
           </p>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-12 bg-white border border-gray-200 rounded-xl p-1">
+          <TabsList className="flex w-full justify-between mb-12 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-1 gap-2">
             {categories.map((category) => (
               <TabsTrigger
                 key={category.id}
                 value={category.id}
-                className="flex flex-col py-3 px-2 data-[state=active]:bg-green-600 data-[state=active]:text-white rounded-lg transition-all"
+                className="flex-1 flex flex-col items-center justify-center py-3 px-2 data-[state=active]:bg-green-600 data-[state=active]:text-white rounded-lg transition-all min-w-0"
               >
-                <span className="font-medium text-sm">{category.name}</span>
-                <span className="text-xs opacity-70">{category.count} templates</span>
+                <span className="font-medium text-sm text-gray-900 dark:text-gray-100">{category.name}</span>
+                <span className="text-xs opacity-70 text-gray-700 dark:text-gray-300">{category.count} templates</span>
               </TabsTrigger>
             ))}
           </TabsList>
@@ -296,12 +297,12 @@ const TemplatesSection = () => {
                 {templates[category.id].map((template, index) => (
                   <Card 
                     key={index} 
-                    className="group hover:shadow-xl transition-all duration-300 border-gray-200 hover:border-green-300 cursor-pointer overflow-hidden"
+                    className="group hover:shadow-xl transition-all duration-300 border-gray-200 dark:border-gray-800 hover:border-green-300 cursor-pointer overflow-hidden bg-white dark:bg-gray-900"
                     onClick={() => handleTemplateClick(template.name)}
                   >
                     <CardContent className="p-0">
                       <div className="relative">
-                        <div className="aspect-[3/4] bg-white p-4 flex flex-col">
+                        <div className="aspect-[3/4] bg-white dark:bg-gray-900 p-4 flex flex-col">
                           {/* Header */}
                           <div className={`h-12 ${template.preview.accent} rounded-md mb-3 flex items-center justify-center relative overflow-hidden`}>
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
@@ -311,13 +312,13 @@ const TemplatesSection = () => {
                           </div>
                           
                           {/* Main Content */}
-                          <div className="flex-1 bg-white rounded-md p-3 mb-3 relative border border-gray-100">
+                          <div className="flex-1 bg-white dark:bg-gray-900 rounded-md p-3 mb-3 relative border border-gray-100 dark:border-gray-800">
                             <div className="text-center space-y-2">
-                              <div className="text-xs font-semibold text-gray-800 mb-2">
+                              <div className="text-xs font-semibold text-gray-900 dark:text-gray-100 mb-2">
                                 {template.preview.subtitle}
                               </div>
                               {template.preview.content.map((item, idx) => (
-                                <div key={idx} className="text-xs text-gray-600 bg-gray-50 rounded px-2 py-1">
+                                <div key={idx} className="text-xs text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 rounded px-2 py-1">
                                   {item}
                                 </div>
                               ))}
@@ -348,7 +349,7 @@ const TemplatesSection = () => {
                             <Button 
                               size="sm" 
                               variant="outline" 
-                              className="bg-white hover:bg-gray-100"
+                              className="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800"
                               onClick={(e) => handlePreviewTemplate(template.name, e)}
                             >
                               <Eye className="h-3 w-3" />
@@ -364,7 +365,7 @@ const TemplatesSection = () => {
                       </div>
 
                       <div className="p-4">
-                        <h3 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors mb-2">
+                        <h3 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-green-600 transition-colors mb-2">
                           {template.name}
                         </h3>
                         <div className="flex items-center space-x-1">
@@ -375,6 +376,17 @@ const TemplatesSection = () => {
                       </div>
                     </CardContent>
                   </Card>
+                ))}
+                {Array.from({ length: Math.max(0, 4 - templates[category.id].length) }).map((_, idx) => (
+                  <div
+                    key={`skeleton-${idx}`}
+                    className="bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-800 animate-pulse min-h-[300px]"
+                  >
+                    <div className="h-8 w-3/4 bg-gray-300 dark:bg-gray-700 rounded mb-4 mx-auto" />
+                    <div className="h-4 w-1/2 bg-gray-200 dark:bg-gray-600 rounded mb-2 mx-auto" />
+                    <div className="h-4 w-2/3 bg-gray-200 dark:bg-gray-600 rounded mb-2 mx-auto" />
+                    <div className="h-4 w-1/3 bg-gray-200 dark:bg-gray-600 rounded mx-auto" />
+                  </div>
                 ))}
               </div>
             </TabsContent>

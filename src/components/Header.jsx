@@ -4,10 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
+import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
+  const { theme, setTheme } = useTheme();
 
   const navItems = [
     { name: 'Templates', href: '#templates' },
@@ -17,14 +21,14 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white dark:bg-black backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-green-800 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">HF</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">HustleFlyerForge</span>
+            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">HustleFlyerForge</span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -32,12 +36,19 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-600 hover:text-green-600 transition-colors duration-200 font-medium"
+                className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 font-medium"
               >
                 {item.name}
               </a>
             ))}
           </nav>
+
+          <Switch
+            checked={theme === "dark"}
+            onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+            aria-label="Toggle dark mode"
+         />
+        {theme === "dark" ? <Moon /> : <Sun />}
 
           <div className="hidden md:flex items-center space-x-4">
             {isAuthenticated ? (
@@ -77,7 +88,7 @@ const Header = () => {
                   <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-green-800 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">HF</span>
                   </div>
-                  <span className="text-xl font-bold text-gray-900">HustleFlyerForge</span>
+                  <span className="text-xl font-bold text-gray-900 dark:text-gray-100">HustleFlyerForge</span>
                 </Link>
                 
                 <nav className="flex flex-col space-y-4">
@@ -85,7 +96,7 @@ const Header = () => {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-gray-600 hover:text-green-600 transition-colors duration-200 font-medium py-2"
+                      className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 font-medium py-2"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}

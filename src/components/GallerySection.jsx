@@ -66,17 +66,17 @@ const GallerySection = () => {
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-gray-50">
+    <section id="gallery" className="py-20 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-            🌟 Success Stories
+          <Badge className="mb-4 bg-green-100 text-green-800 border-green-200">
+            🖼️ Gallery
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             Real Results from Real Hustlers
             <span className="text-primary block">Join 10,000+ Happy Customers</span>
           </h2>
-          <p className="text-lg text-secondary-lighter max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             See how small businesses across Kenya are growing with professional marketing materials.
           </p>
         </div>
@@ -156,21 +156,21 @@ const GallerySection = () => {
 
         {/* Stats Section */}
         <div className="grid md:grid-cols-4 gap-8 mt-16 text-center">
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <div className="text-3xl font-bold text-primary mb-2">10,000+</div>
-            <div className="text-secondary-lighter">Designs Created</div>
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-8 text-center">
+            <div className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">10,000+</div>
+            <div className="text-lg text-gray-700 dark:text-gray-300">Designs Created</div>
           </div>
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <div className="text-3xl font-bold text-primary mb-2">500+</div>
-            <div className="text-secondary-lighter">Templates Available</div>
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-8 text-center">
+            <div className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">500+</div>
+            <div className="text-lg text-gray-700 dark:text-gray-300">Templates Available</div>
           </div>
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <div className="text-3xl font-bold text-primary mb-2">98%</div>
-            <div className="text-secondary-lighter">Customer Satisfaction</div>
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-8 text-center">
+            <div className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">98%</div>
+            <div className="text-lg text-gray-700 dark:text-gray-300">Customer Satisfaction</div>
           </div>
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-            <div className="text-secondary-lighter">Support Available</div>
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-8 text-center">
+            <div className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">24/7</div>
+            <div className="text-lg text-gray-700 dark:text-gray-300">Support Available</div>
           </div>
         </div>
       </div>

@@ -48,7 +48,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="text-black">
+    <footer className="text-black dark:text-gray-100 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -59,23 +59,23 @@ const Footer = () => {
                 <div className="w-8 h-8 bg-green-900 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">HF</span>
                 </div>
-                <span className="text-xl font-bold">HustleFlyerForge</span>
+                <span className="text-xl font-bold text-gray-900 dark:text-gray-100">HustleFlyerForge</span>
               </Link>
-              <p className="text-gray-900 mb-6 leading-relaxed">
+              <p className="text-gray-900 dark:text-gray-100 mb-6 leading-relaxed">
                 Empowering Kenyan hustlers and small businesses with professional marketing materials. Create stunning flyers and posters in minutes.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <span className="text-sm">📧</span>
-                  <span className="text-gray-900 text-sm">support@hustleflyerforge.com</span>
+                  <span className="text-gray-900 dark:text-gray-100 text-sm">support@hustleflyerforge.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-sm">📱</span>
-                  <span className="text-gray-900 text-sm">+254 742 301 119</span>
+                  <span className="text-gray-900 dark:text-gray-100 text-sm">+254 742 301 119</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-sm">💬</span>
-                  <span className="text-gray-900 text-sm">WhatsApp Support</span>
+                  <span className="text-gray-900 dark:text-gray-100 text-sm">WhatsApp Support</span>
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@ const Footer = () => {
                       {link.href.startsWith('/') ? (
                         <Link
                           to={link.href}
-                          className="text-gray-900 hover:text-green-600 transition-colors duration-200 text-sm"
+                          className="text-gray-900 dark:text-gray-100 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 text-sm"
                         >
                           {link.name}
                         </Link>
@@ -99,14 +99,14 @@ const Footer = () => {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-900 hover:text-green-600 transition-colors duration-200 text-sm"
+                          className="text-gray-900 dark:text-gray-100 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 text-sm"
                         >
                           {link.name}
                         </a>
                       ) : (
                         <a
                           href={link.href}
-                          className="text-gray-900 hover:text-green-600 transition-colors duration-200 text-sm"
+                          className="text-gray-900 dark:text-gray-100 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 text-sm"
                         >
                           {link.name}
                         </a>
@@ -125,8 +125,8 @@ const Footer = () => {
         <div className="py-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-3">Stay Updated</h3>
-              <p className="text-gray-900">
+              <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">Stay Updated</h3>
+              <p className="text-gray-700 dark:text-gray-300">
                 Get design tips, new templates, and special offers delivered to your inbox.
               </p>
             </div>
@@ -134,9 +134,9 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="flex-1 px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
-              <Button className="bg-primary hover:bg-primary-dark text-black px-6">
+              <Button className="bg-primary hover:bg-primary-dark text-black dark:text-white px-6">
                 Subscribe
               </Button>
             </div>
@@ -148,8 +148,8 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-green-900 text-sm text-center md:text-left">
-              © 2024 HustleFlyerForge. All rights reserved. Made for Kenyan hustlers.
+            <div className="text-gray-900 dark:text-gray-100 text-sm font-bold text-center md:text-left">
+              © 2024 HustleFlyerForge. All rights reserved. Made for Kenyan hustlers By Magdaline and Duncan.
             </div>
             
             <div className="flex items-center space-x-6">
@@ -172,7 +172,7 @@ const Footer = () => {
                 </div>
               </a>
               <a 
-                href="https://wa.me/254700123456" 
+                href="https://wa.me/254708679430" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white hover:text-white transition-colors"

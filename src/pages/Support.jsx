@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -86,8 +85,8 @@ const Support = () => {
           </Link>
 
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">Customer Support</h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">Customer Support</h1>
+            <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
               We're here to help you succeed. Find answers or get in touch with our support team.
             </p>
 
@@ -178,12 +177,12 @@ const Support = () => {
               <div className="space-y-6">
                 {filteredFaqs.map((faq, index) => (
                   <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{faq.question}</h3>
-                    <p className="text-gray-600">{faq.answer}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{faq.question}</h3>
+                    <p className="text-gray-700 dark:text-gray-300">{faq.answer}</p>
                   </div>
                 ))}
                 {filteredFaqs.length === 0 && searchQuery && (
-                  <p className="text-gray-500 text-center py-8">
+                  <p className="text-gray-500 dark:text-gray-400 text-center py-8">
                     No FAQs found matching "{searchQuery}". Try a different search term or contact support directly.
                   </p>
                 )}
