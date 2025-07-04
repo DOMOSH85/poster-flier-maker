@@ -169,21 +169,18 @@ const MenubarSeparator = React.forwardRef((
 ))
 MenubarSeparator.displayName = MenubarPrimitive.Separator.displayName
 
-const MenubarShortcut = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
-  return (
-    <span
-      className={cn(
-        "ml-auto text-xs tracking-widest text-muted-foreground",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-MenubarShortcut.displayname = "MenubarShortcut"
+const MenubarShortcut = React.forwardRef((
+  { className, ...props }, ref) => (
+  <span
+    ref={ref}
+    className={cn(
+      "ml-auto text-xs tracking-widest text-muted-foreground",
+      className
+    )}
+    {...props}
+  />
+))
+MenubarShortcut.displayName = "MenubarShortcut"
 
 export {
   Menubar,

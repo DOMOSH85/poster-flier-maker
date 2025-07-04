@@ -24,3 +24,11 @@ dist-ssr
 *.sw?
 
 .env
+
+# Ignore backend environment file
+backend/.env
+
+# OS-specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini

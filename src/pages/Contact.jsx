@@ -140,7 +140,7 @@ const Contact = () => {
                     <Phone className="h-6 w-6 text-green-600 mt-1" />
                     <div>
                       <h3 className="font-semibold text-gray-900">Phone Support</h3>
-                      <p className="text-gray-600">+254 700 123 456</p>
+                      <p className="text-gray-600">+254 742 301 119</p>
                       <p className="text-sm text-gray-500">Mon-Fri: 8AM-6PM EAT</p>
                     </div>
                   </div>
@@ -149,11 +149,11 @@ const Contact = () => {
                     <MessageCircle className="h-6 w-6 text-green-600 mt-1" />
                     <div>
                       <h3 className="font-semibold text-gray-900">WhatsApp Support</h3>
-                      <p className="text-gray-600">+254 700 123 456</p>
+                      <p className="text-gray-600">+254 708 679 439</p>
                       <p className="text-sm text-gray-500">Quick support via WhatsApp</p>
                       <Button 
                         className="mt-2 bg-green-500 hover:bg-green-600"
-                        onClick={() => window.open('https://wa.me/254700123456', '_blank')}
+                        onClick={() => window.open('https://wa.me/254708679439', '_blank')}
                       >
                         Chat on WhatsApp
                       </Button>

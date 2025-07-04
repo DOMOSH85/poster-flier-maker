@@ -10,7 +10,6 @@ const Payment = () => {
   const location = useLocation();
   const [selectedPayment, setSelectedPayment] = useState('mpesa');
   
-  // Get plan details from location state or default
   const planDetails = location.state || {
     name: 'Hustler Pro',
     price: 'KES 1,500',
@@ -27,7 +26,7 @@ const Payment = () => {
   const handlePayment = () => {
     console.log('Processing payment for:', planDetails.name);
     alert(`Processing ${planDetails.name} payment via ${selectedPayment.toUpperCase()}...`);
-    // Add payment processing logic here
+    
   };
 
   return (
