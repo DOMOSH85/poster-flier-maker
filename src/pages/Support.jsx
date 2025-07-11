@@ -74,7 +74,7 @@ const Support = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text bg-gray-100">
       <Header />
       
       <div className="container mx-auto px-4 py-16">
@@ -109,7 +109,7 @@ const Support = () => {
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <option.icon className="h-12 w-12 mx-auto mb-4 text-gray-600" />
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{option.title}</h3>
+                  <h3 className="text-lg font-semibold text-gray-100 mb-2">{option.title}</h3>
                   <p className="text-gray-600 mb-4 text-sm">{option.description}</p>
                   <Button 
                     className={`w-full ${option.color}`}
@@ -134,7 +134,7 @@ const Support = () => {
           <div className="grid md:grid-cols-2 gap-6 mb-16">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center">
+                <CardTitle className="flex items-center text-gray-100">
                   <Book className="h-5 w-5 mr-2 text-green-600" />
                   Help Resources
                 </CardTitle>
@@ -150,7 +150,7 @@ const Support = () => {
 
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center">
+                <CardTitle className="flex items-center text-gray-100">
                   <Video className="h-5 w-5 mr-2 text-green-600" />
                   Video Tutorials
                 </CardTitle>
@@ -168,7 +168,7 @@ const Support = () => {
           {/* FAQ Section */}
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center">
+              <CardTitle className="flex items-center text-gray-100">
                 <HelpCircle className="h-5 w-5 mr-2 text-green-600" />
                 Frequently Asked Questions
               </CardTitle>
@@ -178,7 +178,7 @@ const Support = () => {
                 {filteredFaqs.map((faq, index) => (
                   <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{faq.question}</h3>
-                    <p className="text-gray-700 dark:text-gray-300">{faq.answer}</p>
+                    <p className="text-gray-700 dark:text-gray-600">{faq.answer}</p>
                   </div>
                 ))}
                 {filteredFaqs.length === 0 && searchQuery && (

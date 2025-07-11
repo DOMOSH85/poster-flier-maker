@@ -17,7 +17,7 @@ const About = () => {
           </Link>
 
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">About HustleFlyerForge</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-gray-100">About HustleFlyerForge</h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               Empowering Kenyan hustlers and small businesses with professional marketing materials that drive growth and success.
             </p>
@@ -25,7 +25,7 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
+              <h2 className="text-2xl md:text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Our Mission</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 We believe every Kenyan entrepreneur deserves access to professional marketing tools. Our mission is to democratize design and help small businesses compete with larger enterprises through stunning visual content.
               </p>
@@ -35,7 +35,7 @@ const About = () => {
               </div>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Story</h2>
+              <h2 className="text-2xl md:text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Our Story</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Founded in 2024, HustleFlyerForge was born from the understanding that many Kenyan entrepreneurs struggle with creating professional marketing materials. We've made it our goal to provide affordable, easy-to-use design tools.
               </p>
@@ -68,7 +68,7 @@ const About = () => {
           </div>
 
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Start Creating?</h2>
+            <h2 className="text-2xl md:text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Ready to Start Creating?</h2>
             <p className="text-gray-600 mb-8">Join thousands of Kenyan entrepreneurs who trust HustleFlyerForge for their marketing needs.</p>
             <Link to="/register" className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
               Get Started Today

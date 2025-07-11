@@ -42,8 +42,8 @@ const Contact = () => {
           </Link>
 
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">Contact Us</h1>
-            <p className="text-xl text-gray-600">
+            <h1 className="text-4xl font-bold text-gray-900 mb-6 dark:text-gray-100">Contact Us</h1>
+            <p className="text-xl text-gray-100">
               We're here to help! Reach out to us through any of the channels below.
             </p>
           </div>
@@ -129,7 +129,7 @@ const Contact = () => {
                   <div className="flex items-start space-x-4">
                     <Mail className="h-6 w-6 text-green-600 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Email Support</h3>
+                      <h3 className="font-semibold text-gray-100">Email Support</h3>
                       <p className="text-gray-600">support@hustleflyerforge.com</p>
                       <p className="text-sm text-gray-500">We typically respond within 2-4 hours</p>
                     </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                   <div className="flex items-start space-x-4">
                     <Phone className="h-6 w-6 text-green-600 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Phone Support</h3>
+                      <h3 className="font-semibold text-gray-100">Phone Support</h3>
                       <p className="text-gray-600">+254 742 301 119</p>
                       <p className="text-sm text-gray-500">Mon-Fri: 8AM-6PM EAT</p>
                     </div>
@@ -147,7 +147,7 @@ const Contact = () => {
                   <div className="flex items-start space-x-4">
                     <MessageCircle className="h-6 w-6 text-green-600 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">WhatsApp Support</h3>
+                      <h3 className="font-semibold text-gray-100">WhatsApp Support</h3>
                       <p className="text-gray-600">+254 708 679 439</p>
                       <p className="text-sm text-gray-500">Quick support via WhatsApp</p>
                       <Button 
@@ -162,7 +162,7 @@ const Contact = () => {
                   <div className="flex items-start space-x-4">
                     <MapPin className="h-6 w-6 text-green-600 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Location</h3>
+                      <h3 className="font-semibold text-gray-100">Location</h3>
                       <p className="text-gray-600">Nairobi, Kenya</p>
                       <p className="text-sm text-gray-500">Serving businesses across Kenya</p>
                     </div>
@@ -171,7 +171,7 @@ const Contact = () => {
                   <div className="flex items-start space-x-4">
                     <Clock className="h-6 w-6 text-green-600 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">Business Hours</h3>
+                      <h3 className="font-semibold text-gray-100">Business Hours</h3>
                       <p className="text-gray-600">Monday - Friday: 8AM - 6PM</p>
                       <p className="text-gray-600">Saturday: 9AM - 4PM</p>
                       <p className="text-gray-600">Sunday: Closed</p>
